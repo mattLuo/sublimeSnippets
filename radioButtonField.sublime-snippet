@@ -1,0 +1,26 @@
+<snippet>
+	<content><![CDATA[
+a!radioButtonField(  
+ label: null,
+ labelPosition: "JUSTIFIED",
+ instructions: null,
+ required: null,
+ disabled: null,
+ choiceLabels: {},
+ choiceValues: {},
+ value: null,
+ validations: null,
+ saveInto: null,
+ validationGroup: null,
+ requiredMessage: null, 
+ choiceLayout: "STACKED",
+ /* "STACKED", "COMPACT" */
+ helpTooltip: null,
+ showWhen: null
+)
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>radioButtonField</tabTrigger> 
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

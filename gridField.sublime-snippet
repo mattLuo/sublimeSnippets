@@ -1,0 +1,44 @@
+<snippet>
+  <content><![CDATA[
+a!gridField(
+  label: "Current Servers",
+  showWhen:false,
+  totalCount: local!cloudServers.totalCount,
+  columns: {
+    a!gridTextColumn(
+      label: "Name",
+      field: "serverName",
+      data: index(
+        local!cloudServers.data,
+        "serverName",
+        {}
+      )
+    ),
+    a!gridTextColumn(
+      label: "serverSize",
+      field: "serverSize",
+      data: index(
+        local!cloudServers.data,
+        "serverSize",
+        {}
+      )
+    ),
+    a!gridTextColumn(
+      label: "Status",
+      field: "status",
+      data: index(
+        local!cloudServers.data,
+        "status",
+        {}
+      )
+    )
+  },
+  value: local!cloudServersPagingInfo,
+  saveInto: local!cloudServersPagingInfo
+)
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>gridField</tabTrigger> 
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <!-- <scope>source.python</scope> -->
+</snippet>

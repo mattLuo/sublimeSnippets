@@ -1,0 +1,15 @@
+<snippet>
+	<content><![CDATA[
+rule!CRM_salesforceQueryConnection(
+  connection: rule!CRM_salesforceMainConnectionSystemWide(),
+  query: 
+  	"SELECT TickerSymbol   
+	FROM Account 
+	WHERE Id='" & rf!salesforceID & "'"
+)
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	 <tabTrigger>CRM_salesforceQueryConnection</tabTrigger> 
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

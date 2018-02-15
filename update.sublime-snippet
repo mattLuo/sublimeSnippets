@@ -1,0 +1,10 @@
+<snippet>
+	<content><![CDATA[
+UPDATE `${1:pqt_pricequote}` 
+SET `${2:statusid}` = ${3:NULL};
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>update</tabTrigger> 
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

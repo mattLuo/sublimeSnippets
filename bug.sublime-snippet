@@ -1,0 +1,26 @@
+<snippet>
+	<content><![CDATA[
+*Observed Behavior*
+https://home.appian.com/suite/proc/$1
+
+*Expected Behavior*
+$2
+
+*Steps to Reproduce*
+$3
+
+*Hypothesis of root cause*
+$4
+
+*Possible Solutions*
+$5
+
+*Resolution*
+$6
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	  <tabTrigger>bug</tabTrigger>  
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

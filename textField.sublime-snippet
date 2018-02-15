@@ -1,0 +1,27 @@
+<snippet>
+	<content><![CDATA[
+a!textField(
+  label: "",
+  showWhen: null,
+  align: null,
+  labelPosition: null,
+  instructions: "",
+  required: null,
+  readOnly: null,
+  disabled: null,
+  value: null,
+  validations: null,
+  saveInto: null,
+  refreshAfter: null,
+  validationGroup: null,
+  requiredMessage: null,
+  placeholder: null,
+  helpTooltip: null,
+  masked: null
+)
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	 <tabTrigger>textField</tabTrigger> 
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

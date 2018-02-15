@@ -1,0 +1,27 @@
+<snippet>
+	<content><![CDATA[
+a!paragraphField(
+  label: null,
+  showWhen: null,
+  align: null,
+  labelPosition: null,
+  instructions: null,
+  required: null,
+  readOnly: null,
+  disabled: null,
+  value: null,
+  validations: if(len(ri!provisionNote) > 4000, "Limit your entry to 4000 characters",null),
+  saveInto: null,
+  refreshAfter: null,
+  validationGroup: null,
+  requiredMessage: null,
+  placeholder: null,
+  helpTooltip: null,
+  masked: null
+)
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	 <tabTrigger>paragraphField</tabTrigger> 
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

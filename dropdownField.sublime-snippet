@@ -1,0 +1,25 @@
+<snippet>
+	<content><![CDATA[
+a!dropdownField(
+ label: null,
+ showWhen: true,
+ labelPosition: "ABOVE",
+ instructions: null,
+ required: false,
+ disabled: false,
+ choiceLabels: null,
+ choiceValues: null,
+ placeholderLabel: null,
+ value: null, 
+ saveInto: null,
+ validations: null, 
+ validationGroup: null,
+ requiredMessage: null,
+ helpTooltip: null
+) 
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>dropdownField</tabTrigger> 
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

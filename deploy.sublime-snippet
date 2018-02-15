@@ -1,0 +1,15 @@
+<snippet>
+	<content><![CDATA[
+I developed and tested this application in Homedev. I have tested the deployment in Homestaging.
+
+Please wait for Ahmed's approval. 
+
+---Home Deployment instructions---
+In the applications view of the /suite/design web page, 
+Select the "Import App" button. Import the attached patch.
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	 <tabTrigger>deploy</tabTrigger> 
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

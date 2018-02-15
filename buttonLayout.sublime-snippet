@@ -1,0 +1,26 @@
+<snippet>
+	<content><![CDATA[
+a!buttonLayout(
+  primaryButtons: {
+    a!buttonWidgetSubmit(
+      label: "Update",
+      style: "PRIMARY",
+      value: null,
+      validate: true
+    )
+  },
+  secondaryButtons: {
+    a!buttonWidgetSubmit(
+      label: "Cancel",
+      style: "SECONDARY",
+      value: true,
+      saveInto: ri!cancel
+    )
+  }
+)
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>buttonLayout</tabTrigger> 
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

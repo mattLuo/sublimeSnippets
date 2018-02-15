@@ -1,0 +1,26 @@
+<snippet>
+	<content><![CDATA[
+cast(
+  'type!{urn:com:appian:types:PQT}PQT_AdditionalCloudInstance?list',
+  a!queryEntity(
+    entity: cons!PQT_ADDITIONAL_CLOUD_INSTANCE_DSE,
+    query: a!query(
+      filter: a!queryFilter(field:"priceQuoteId", operator:"=", value:pv!selectedPriceQuoteId),
+      pagingInfo: a!pagingInfo(
+        startIndex: 1,
+        batchSize: -1,
+        sort: { 
+          a!sortInfo( field: "isNewInstance", ascending: false),        	
+          a!sortInfo( field: "domain", ascending: true),
+          a!sortInfo( field: "isChangeForExistingInstance", ascending: true)
+        }
+      )
+    )
+  ).data
+)
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>cast</tabTrigger> 
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

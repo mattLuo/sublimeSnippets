@@ -1,0 +1,24 @@
+<snippet>
+	<content><![CDATA[
+a!dateField(  
+ label: null,
+ instructions: null,
+ required: null,
+ readOnly: null,
+ disabled: null,
+ value: null,
+ validations: null,
+ saveInto: null,
+ validationGroup: null,
+ requiredMessage: null,
+ align: null,
+ labelPosition: null,
+ helpTooltip: null,
+ showWhen: null
+)
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>dateField</tabTrigger> 
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

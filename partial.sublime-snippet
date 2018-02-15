@@ -1,0 +1,18 @@
+<snippet>
+	<content><![CDATA[
+load(
+  local!boat,
+  with(
+    local!dock: a!pagingInfo(startIndex: _, batchSize: 10)(startIndex:local!boat),
+    {
+    a!textField(value:local!boat,saveInto:local!boat),
+    a!textField(value:local!dock,saveInto:local!dock)
+    }
+  )
+)
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	 <tabTrigger>partial</tabTrigger>  
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

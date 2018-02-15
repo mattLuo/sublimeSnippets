@@ -1,0 +1,15 @@
+<snippet>
+	<content><![CDATA[
+a!richTextImage(
+	image: a!documentImage(
+	 document: a!iconIndicator("STATUS_WARN"),
+	 caption: null
+	),
+	showWhen: true
+)
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>richTextImage</tabTrigger> 
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

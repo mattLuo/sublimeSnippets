@@ -1,0 +1,31 @@
+<snippet>
+	<content><![CDATA[
+a!queryEntity(
+  entity: cons!CRM_ACCOUNT_DATASTORE_ENTITY,
+  query: a!query(
+    selection: a!querySelection(
+      columns: {
+        a!queryColumn(field: "customerId")
+      }
+    ),  
+    filter: null,
+    logicalExpression: 
+    if(
+      and( isnull(null) ),
+      null,
+      a!queryLogicalExpression(
+        operator: "AND",
+        filters: {
+          a!queryFilter(field:"customerId", operator:"=", value:1)
+        }
+      )
+    ),
+  pagingInfo: a!pagingInfo( startIndex:1, batchSize: 100, sort:null)  
+  )
+)
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	 <tabTrigger>queryEntity</tabTrigger>  
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

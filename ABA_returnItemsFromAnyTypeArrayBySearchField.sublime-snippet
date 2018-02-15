@@ -1,0 +1,13 @@
+<snippet>
+	<content><![CDATA[
+rule!ABA_returnItemsFromAnyTypeArrayBySearchField(
+  fieldToSearchBy: "${1:id}",
+  searchValue: ${2:fv!item}, 
+  anyType: ${3:local!busAreas.data}
+)
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	 <tabTrigger>ABA_returnItemsFromAnyTypeArrayBySearchField</tabTrigger> 
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

@@ -1,0 +1,15 @@
+<snippet>
+	<content><![CDATA[
+a!richTextItem(
+  text: null,
+  style: "NORMAL",
+	/* "NORMAL" (default), "EMPHASIS", "STRONG", "UNDERLINE", "LARGE", "MEDIUM", "SMALL", "HEADER_LARGE", "HEADER_MEDIUM", "HEADER_SMALL", "POSITIVE", "NEGATIVE", "SECONDARY" */
+  link: null,
+  showWhen: null
+)
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>richTextItem</tabTrigger> 
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

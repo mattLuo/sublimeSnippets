@@ -1,0 +1,34 @@
+<snippet>
+	<content><![CDATA[
+a!facet(
+  name: "${1:Status}",
+  options: {
+    a!facetOption(
+      id: 2,
+      name: "Active",
+      filter: a!queryFilter(
+        field: "status",
+        operator: "=",
+        value: "active"
+      )
+    ),
+    a!facetOption(
+      id: 3,
+      name: "Inactive",
+      filter: a!queryFilter(
+        field: "status",
+        operator: "=",
+        value: "Inactive"
+      )
+    )
+  },
+  defaultOption: "Active",
+  isVisible: true,
+  allowMultipleSelections: true
+)
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	 <tabTrigger>facet</tabTrigger> 
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

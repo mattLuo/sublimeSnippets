@@ -1,0 +1,26 @@
+<snippet>
+  <content><![CDATA[
+a!checkboxField(
+ label: null,
+ labelPosition: null,
+ align: null,
+ instructions: null,
+ required: null,
+ showWhen: null,
+ disabled: null,
+ choiceLabels: null,
+ choiceValues: null,
+ value: null,
+ validations: null,
+ saveInto: null,
+ validationGroup: null,
+ requiredMessage: null,
+ helpTooltip: null,
+ choiceLayout: null
+)
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>checkboxField</tabTrigger> 
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <!-- <scope>source.python</scope> -->
+</snippet>

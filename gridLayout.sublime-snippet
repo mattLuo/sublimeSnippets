@@ -1,0 +1,69 @@
+<snippet>
+  <content><![CDATA[
+load(
+  local!lineItemsPagingInfo: a!pagingInfo( startIndex: 1, batchSize: 100, sort: a!sortInfo( field: "skuItemId", ascending: true)),
+ 
+  local!orderLineItems: a!queryEntity(
+    entity: cons!CRM_ORDER_LINE_ITEM_DSE,
+    query: a!query(
+      filter: a!queryFilter(field:"orderId", operator:"=", value: ri!order.id),
+      pagingInfo: local!lineItemsPagingInfo
+    )
+  ),    
+  a!gridLayout(
+   label: null,
+   showWhen: null, 
+   labelPosition: null, 
+   instructions: null,
+   totalCount: null,
+   emptyGridMessage: null,
+   helpTooltip: null,
+   shadeAlternateRows: null,
+   spacing: null,
+   borderStyle: null,
+   headerCells: {
+     a!gridLayoutHeaderCell(  
+      label: null,
+      helpTooltip: null,
+      align: null,
+      showWhen: null
+     )
+   },
+   columnConfigs: {
+    a!gridLayoutColumnConfig(
+      width: null,
+      weight: null,
+      showWhen: null
+     )   
+   },
+   rows: a!forEach(
+     items: local!orderLineItems
+     ,
+     expression: {
+      a!gridRowLayout(
+       id: null,
+       selectionDisabled: null,
+       showWhen: null, 
+       contents: {
+
+        }
+      )
+     }
+   ),
+   validations: null,
+   validationGroup: null,
+   selectable: null,
+   selectionDisabled: null,
+   selectionRequired: null,
+   selectionValue: null,
+   selectionSaveInto: null,
+   addRowLink: null
+  )
+  
+)  
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>gridLayout</tabTrigger> 
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <!-- <scope>source.python</scope> -->
+</snippet>
