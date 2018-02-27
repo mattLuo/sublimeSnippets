@@ -1,0 +1,28 @@
+<snippet>
+	<content><![CDATA[
+a!writeToDataStoreEntity(
+  dataStoreEntity: cons!CRM_ON_TRACK_ENTRY_DSE,
+  valueToStore: 'type!{urn:com:appian:types:CRM}CRM_OnTrackEntry'(
+    status: local!newOnTrackEntry.status,
+    disposition: local!newOnTrackEntry.disposition,
+    author: loggedInUser(),
+    createdTime: now(),
+    customerId: ri!customerId
+  ),
+  onSuccess: {
+    a!save(
+      local!isAddingOnTrack,
+      false
+    ),
+    a!save(
+      local!newOnTrackEntry,
+      'type!{urn:com:appian:types:CRM}CRM_OnTrackEntry'()
+    )
+  }
+)
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	 <tabTrigger>writeToDataStoreEntity</tabTrigger>  
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>

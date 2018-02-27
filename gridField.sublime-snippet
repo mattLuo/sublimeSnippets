@@ -1,40 +1,116 @@
 <snippet>
   <content><![CDATA[
-a!gridField(
-  label: "Current Servers",
-  showWhen:false,
-  totalCount: local!cloudServers.totalCount,
-  columns: {
-    a!gridTextColumn(
-      label: "Name",
-      field: "serverName",
-      data: index(
-        local!cloudServers.data,
-        "serverName",
-        {}
-      )
-    ),
-    a!gridTextColumn(
-      label: "serverSize",
-      field: "serverSize",
-      data: index(
-        local!cloudServers.data,
-        "serverSize",
-        {}
-      )
-    ),
-    a!gridTextColumn(
-      label: "Status",
-      field: "status",
-      data: index(
-        local!cloudServers.data,
-        "status",
-        {}
-      )
+load(
+  local!customerNameSearchInput,
+  local!hasMsaFilterSelection: null, 
+  local!customersGridSelection: a!gridSelection( pagingInfo: a!pagingInfo( startIndex: 1, batchSize: 100, sort:  null)),    
+  with(
+  local!customersLeftJoinMsaMainContracts: a!queryEntity(
+    entity: cons!CRM_ACCOUNT_MSA_VW_DSE,
+    query: a!query( 
+      logicalExpression: a!queryLogicalExpression(
+        operator: "AND",
+        filters: {
+          if(
+            local!hasMsaFilterSelection, 
+            a!queryFilter(field:"mainContractId", operator:"not null"), 
+            if( 
+              toboolean(local!hasMsaFilterSelection)=false,
+              a!queryFilter(field:"mainContractId", operator:"is null"),
+              {}
+            )
+          ),
+
+          if(
+            rule!APN_isBlank(local!customerNameSearchInput),
+            {},
+            a!queryFilter(field:"fullName", operator:"includes", value:local!customerNameSearchInput)
+          ),          
+          
+          a!queryFilter(field: "status", operator:"=", value: 1)
+        }
+      ),
+      pagingInfo: local!customersGridSelection.pagingInfo  
     )
-  },
-  value: local!cloudServersPagingInfo,
-  saveInto: local!cloudServersPagingInfo
+  ),    
+  {
+      a!sideBySideLayout(
+        showWhen: null,
+        alignVertical: null,
+        spacing: "SPARSE",   
+        items: {
+          a!sideBySideItem(
+            showWhen: null,
+            width: "6X",
+            /* "AUTO", "MINIMIZE", "1X", "2X", "3X", "4X", "5X", "6X", "7X", "8X", "9X", and "10X". */
+            item: 
+          a!textField(
+            label: "Search Customers By Name",
+            value: local!customerNameSearchInput,
+            saveInto: local!customerNameSearchInput 
+          )
+          ),
+          a!sideBySideItem(
+            showWhen: null,
+            width: "AUTO",
+            item: 
+            a!dropdownField(
+           label: "Has an MSA", 
+           labelPosition: "ABOVE", 
+           helpTooltip: "Currently has at least one MSA",
+           choiceLabels: {"Yes","No"},
+           choiceValues: {true,false},
+           placeholderLabel: "All",
+           value: local!hasMsaFilterSelection, 
+           saveInto: local!hasMsaFilterSelection 
+          )
+          )         
+        }
+      ),
+        a!gridField(  
+          totalCount: local!customersLeftJoinMsaMainContracts.totalCount,
+          columns: {
+            a!gridTextColumn(
+              label: "Name",
+              field: "fullName",
+              data: index( local!customersLeftJoinMsaMainContracts.data, "fullName", {})
+            ),
+            a!gridTextColumn(
+              label: "AE",
+              field: "accountExecutive",
+              data: a!forEach(
+                items: index( local!customersLeftJoinMsaMainContracts.data, "accountExecutive", {}),
+                expression: rule!APN_displayUser(fv!item) 
+              ) 
+            ),
+            a!gridTextColumn(
+              label: "Salesforce ID",
+              alignment: "RIGHT",              
+              field: "salesforceId",
+              data: index( local!customersLeftJoinMsaMainContracts.data, "salesforceId", {}),
+              links: 
+              a!forEach(
+                items: index( local!customersLeftJoinMsaMainContracts.data, "salesforceId", {} ),
+                expression: a!safeLink( uri: rule!generateSalesForceUrlBySite(fv!item) ) 
+
+              )
+            ) 
+          },
+          identifiers: local!customersLeftJoinMsaMainContracts.identifiers,
+          value: local!customersGridSelection,
+          saveInto: {
+            local!customersGridSelection
+          },
+          selection: true,
+          validations: if(
+            count( local!customersGridSelection.selected ) > 1,
+            "You may only select one customer",
+            null
+          )
+        )
+    } 
+  )
+ 
 )
 ]]></content>
   <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->

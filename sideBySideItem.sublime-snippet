@@ -1,14 +1,14 @@
 <snippet>
 	<content><![CDATA[
-a!queryLogicalExpression(
-  operator: "AND",
-  filters: {
-    a!queryFilter(field: "${5:id}", operator:"=", value: ${6:})
-  }
+a!sideBySideItem(
+  showWhen: null,
+  width: "AUTO",
+  /* "AUTO", "MINIMIZE", "1X", "2X", "3X", "4X", "5X", "6X", "7X", "8X", "9X", and "10X". */
+  item: null
 )
 ]]></content>
 	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
-	 <tabTrigger>queryLogicalExpression</tabTrigger>  
+	 <tabTrigger>sideBySideItem</tabTrigger>  
 	<!-- Optional: Set a scope to limit where the snippet will trigger -->
 	<!-- <scope>source.python</scope> -->
 </snippet>

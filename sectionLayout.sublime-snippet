@@ -4,13 +4,13 @@ a!sectionLayout(
  label: "",
  validations: null,
  validationGroup: null,
- isCollapsible: false,
- isInitiallyCollapsed: false,
- showWhen: true, 
+ isCollapsible: null,
+ isInitiallyCollapsed: null,
+ showWhen: null, 
  contents: {
 
  }
-) 
+)
 ]]></content>
   <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
   <tabTrigger>sectionLayout</tabTrigger> 

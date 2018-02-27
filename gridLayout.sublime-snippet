@@ -1,14 +1,16 @@
 <snippet>
   <content><![CDATA[
 load(
-  local!lineItemsPagingInfo: a!pagingInfo( startIndex: 1, batchSize: 100, sort: a!sortInfo( field: "skuItemId", ascending: true)),
- 
-  local!orderLineItems: a!queryEntity(
-    entity: cons!CRM_ORDER_LINE_ITEM_DSE,
-    query: a!query(
-      filter: a!queryFilter(field:"orderId", operator:"=", value: ri!order.id),
-      pagingInfo: local!lineItemsPagingInfo
-    )
+  local!lineItemsPagingInfo: a!pagingInfo( startIndex: 1, batchSize: -1, sort: a!sortInfo( field: "skuItemId", ascending: true)),
+  local!orderLineItems: cast(
+    'type!{urn:com:appian:types:CRM}CRM_OrderLineItem?list',
+    a!queryEntity(
+      entity: cons!CRM_ORDER_LINE_ITEM_DSE,
+      query: a!query(
+        filter: a!queryFilter(field:"orderId", operator:"=", value: 658),
+        pagingInfo: local!lineItemsPagingInfo
+      )
+    ).data
   ),    
   a!gridLayout(
    label: null,
@@ -23,29 +25,24 @@ load(
    borderStyle: null,
    headerCells: {
      a!gridLayoutHeaderCell(  
-      label: null,
+      label: "",
       helpTooltip: null,
       align: null,
       showWhen: null
      )
    },
    columnConfigs: {
-    a!gridLayoutColumnConfig(
-      width: null,
-      weight: null,
-      showWhen: null
-     )   
+    a!gridLayoutColumnConfig( width: null, weight: null, showWhen: null )   
    },
    rows: a!forEach(
-     items: local!orderLineItems
-     ,
+     items: local!orderLineItems,
      expression: {
       a!gridRowLayout(
-       id: null,
+       id: fv!item.orderLineItemId,
        selectionDisabled: null,
        showWhen: null, 
        contents: {
-
+          a!textField( value: fv!item.description)
         }
       )
      }
@@ -57,9 +54,17 @@ load(
    selectionRequired: null,
    selectionValue: null,
    selectionSaveInto: null,
-   addRowLink: null
+   addRowLink: a!dynamicLink(
+      label: "Add Another",
+      saveInto: a!save(
+        local!orderLineItems,
+        append(
+          local!orderLineItems,
+          'type!{urn:com:appian:types:CRM}CRM_OrderLineItem'()
+        )
+      )
+   )
   )
-  
 )  
 ]]></content>
   <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->

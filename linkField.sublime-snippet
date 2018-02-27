@@ -1,14 +1,17 @@
 <snippet>
 	<content><![CDATA[
-a!queryLogicalExpression(
-  operator: "AND",
-  filters: {
-    a!queryFilter(field: "${5:id}", operator:"=", value: ${6:})
-  }
+a!linkField(
+ label: null,
+ showWhen: null,
+ instructions: null,
+ links: null,
+ labelPosition: null,
+ align: null,
+ helpTooltip: null
 )
 ]]></content>
 	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
-	 <tabTrigger>queryLogicalExpression</tabTrigger>  
+	 <tabTrigger>linkField</tabTrigger>  
 	<!-- Optional: Set a scope to limit where the snippet will trigger -->
 	<!-- <scope>source.python</scope> -->
 </snippet>

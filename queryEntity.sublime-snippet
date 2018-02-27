@@ -9,18 +9,8 @@ a!queryEntity(
       }
     ),  
     filter: null,
-    logicalExpression: 
-    if(
-      and( isnull(null) ),
-      null,
-      a!queryLogicalExpression(
-        operator: "AND",
-        filters: {
-          a!queryFilter(field:"customerId", operator:"=", value:1)
-        }
-      )
-    ),
-  pagingInfo: a!pagingInfo( startIndex:1, batchSize: 100, sort:null)  
+    logicalExpression: null,
+    pagingInfo: a!pagingInfo( startIndex: 1, batchSize: -1, sort: null)  
   )
 )
 ]]></content>
